@@ -30,9 +30,6 @@ static void GherkinDocumentEvent_delete(const Event* event) {
     if (gherkin_document_event->uri) {
         free((void*)gherkin_document_event->uri);
     }
-    if (gherkin_document_event->gherkin_document) {
-        GherkinDocument_delete(gherkin_document_event->gherkin_document);
-    }
     free((void*)gherkin_document_event);
 }
 
