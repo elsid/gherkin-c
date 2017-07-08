@@ -12,12 +12,10 @@ typedef struct StringTokenScanner {
 
 static Token* StringTokenScanner_read(TokenScanner* token_scanner);
 
-static void StringTokenScanner_delete(TokenScanner* token_scanner);
-
 TokenScanner* StringTokenScanner_new(const wchar_t* source) {
     StringTokenScanner* token_scanner = (StringTokenScanner*)malloc(sizeof(StringTokenScanner));
     token_scanner->token_scanner.read = &StringTokenScanner_read;
-    token_scanner->token_scanner.delete = &StringTokenScanner_delete;
+    token_scanner->token_scanner.del = &StringTokenScanner_delete;
     token_scanner->source = source;
     token_scanner->line = 0;
     token_scanner->pos = 0;
@@ -53,7 +51,7 @@ static Token* StringTokenScanner_read(TokenScanner* token_scanner) {
     return Token_new(line, string_token_scanner->line);
 }
 
-static void StringTokenScanner_delete(TokenScanner* token_scanner) {
+void StringTokenScanner_delete(TokenScanner* token_scanner) {
     if (!token_scanner) {
         return;
     }
