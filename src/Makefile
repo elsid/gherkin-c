@@ -1,5 +1,5 @@
-GCC_FLAGS=-c -Wall -Werror -g
-CLANG_FLAGS=-c -Wall -Werror -g
+GCC_FLAGS=-c -Wall -Werror -g -fPIC
+CLANG_FLAGS=-c -Wall -Werror -g -fPIC
 
 ifeq ($(CC),i686-w64-mingw32-gcc)
 	CC=i686-w64-mingw32-gcc
