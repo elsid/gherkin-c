@@ -39,11 +39,11 @@ clean:
 .PHONY: clean
 
 cli: ./include/rule_type.h src/parser.c src/dialect.c $(SRC_FILES) src/Makefile
-	cd src; $(MAKE) CC=$(CC) $@
+	cd src; $(MAKE) CC="$(CC)" $@
 .PHONY: libs
 
 libs: ./include/rule_type.h src/parser.c src/dialect.c $(SRC_FILES) src/Makefile
-	cd src; $(MAKE) CC=$(CC) $@
+	cd src; $(MAKE) CC="$(CC)" $@
 .PHONY: libs
 
 .run: $(GHERKIN) $(GOOD_FEATURE_FILES)
